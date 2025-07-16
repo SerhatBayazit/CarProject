@@ -1,0 +1,76 @@
+﻿@page
+@model Car.Pages.Cars.CreateModel
+
+@{
+    ViewData["Title"] = "Yeni Araç Ekle";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    .container10{
+        margin-bottom:10%;
+    }
+</style>
+<div class="container10 mt-3 mb-10">
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <div class="card shadow rounded">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">🚗 Yeni Araç Ekle</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="CarItem.Brand" class="form-label">Marka</label>
+                            <input asp-for="CarItem.Brand" class="form-control" />
+                            <span asp-validation-for="CarItem.Brand" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CarItem.Model" class="form-label">Model</label>
+                            <input asp-for="CarItem.Model" class="form-control" />
+                            <span asp-validation-for="CarItem.Model" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CarItem.Year" class="form-label">Yıl</label>
+                            <input asp-for="CarItem.Year" class="form-control" />
+                            <span asp-validation-for="CarItem.Year" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CarItem.Color" class="form-label">Renk</label>
+                            <input asp-for="CarItem.Color" class="form-control" />
+                            <span asp-validation-for="CarItem.Color" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CarItem.DailyPrice" class="form-label">Günlük Fiyat</label>
+                            <input asp-for="CarItem.DailyPrice" class="form-control" />
+                            <span asp-validation-for="CarItem.DailyPrice" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CarItem.Description" class="form-label">Açıklama</label>
+                            <input asp-for="CarItem.Description" class="form-control" />
+                            <span asp-validation-for="CarItem.Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-sm-end align-items-center">
+                  
+                            <input type="submit" value="Oluştur" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

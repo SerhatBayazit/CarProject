@@ -1,0 +1,33 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Kişisel Veriler";
+}
+<style>
+    .profile-wrapper {
+        max-width: 500px;
+        background-color: #fff;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .profile-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        color: #222;
+        text-align: center;
+    }
+</style>
+<div class="profile-wrapper">
+    <div class="profile-title">Kişisel Veriler</div>
+
+    <p>Hesabınıza ait kişisel verileri indirebilir veya hesabınızı silebilirsiniz.</p>
+
+    <form method="post">
+        <button type="submit" asp-page-handler="Download" class="btn-save mb-3">Verileri İndir</button>
+        <a asp-page="DeletePersonalData" class="btn btn-danger w-100">Hesabı Sil</a>
+    </form>
+</div>

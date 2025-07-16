@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Car Projesi Ana Sayfa"; // Tarayıcı sekmesinin başlığı
+}
+<link href="~/css/anasayfa.css" rel="stylesheet" />
+<div class="text-center">
+    <h1 class="display-4">Hoş Geldiniz!</h1>
+    <p>Araç kiralama veya satış işlemleriniz için doğru adrestesiniz. Size en uygun aracı bulmak için keşfe başlayın.</p>
+    <p>
+        <a asp-page="/Cars/Index" class="btn-primary-link">Araçları Görüntüleyin</a>
+        <br /> 
+        <a href="/Cars/Create" class="btn-secondary-link">Araç ekleyin</a> 
+    </p>
+</div>
+
+<hr />
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h3>Neden Biz?</h3>
+        <ul>
+            <li>Geniş Araç Filosu</li>
+            <li>Uygun Fiyatlar</li>
+            <li>Kolay Rezervasyon</li>
+            <li>7/24 Destek</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h3>Hızlı Erişim</h3>
+        <ul class="list-unstyled">
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#">Bize Ulaşın</a></li>
+            <li><a href="#">Sıkça Sorulan Sorular</a></li>
+        </ul>
+    </div>
+</div>

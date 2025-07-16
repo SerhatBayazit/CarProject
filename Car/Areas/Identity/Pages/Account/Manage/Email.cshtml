@@ -1,0 +1,43 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "E-posta Adresini Güncelle";
+}
+<style>
+    .profile-wrapper {
+        max-width: 500px;
+        background-color: #fff;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .profile-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        color: #222;
+        text-align: center;
+    }
+</style>
+<div class="profile-wrapper">
+    <div class="profile-title">E-posta Güncelleme</div>
+
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="form-group mb-4">
+            <label><i class="bi bi-envelope form-icon"></i> Güncel E-posta</label>
+            <input asp-for="Email" class="form-control" disabled />
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="Input.NewEmail"><i class="bi bi-envelope-plus form-icon"></i> Yeni E-posta</label>
+            <input asp-for="Input.NewEmail" class="form-control" placeholder="yeni@example.com" />
+            <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn-save">Güncelle</button>
+    </form>
+</div>

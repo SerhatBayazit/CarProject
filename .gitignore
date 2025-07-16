@@ -1,0 +1,12 @@
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.log
+*.db
+*.DS_Store
+*.sqlite
+*.db-shm
+*.db-wal
+.env

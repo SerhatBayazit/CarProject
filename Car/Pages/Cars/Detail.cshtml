@@ -1,0 +1,27 @@
+﻿@page
+@model Car.Pages.Cars.DetailModel
+@{
+    Layout = null; // Layout devre dışı
+}
+
+<h4>Araç Detayı</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">Marka</dt>
+    <dd class="col-sm-9">@Model.Car.Brand</dd>
+
+    <dt class="col-sm-3">Model</dt>
+    <dd class="col-sm-9">@Model.Car.Model</dd>
+
+    <dt class="col-sm-3">Yıl</dt>
+    <dd class="col-sm-9">@Model.Car.Year</dd>
+
+    <dt class="col-sm-3">Renk</dt>
+    <dd class="col-sm-9">@Model.Car.Color</dd>
+
+    <dt class="col-sm-3">Fiyat</dt>
+    <dd class="col-sm-9">@Model.Car.DailyPrice.ToString("N0") ₺</dd>
+
+    <dt class="col-sm-3">Donanım</dt>
+    <dd class="col-sm-9">@Model.Car.Description</dd>
+</dl>

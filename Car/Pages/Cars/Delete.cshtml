@@ -1,0 +1,51 @@
+﻿@page
+@model Car.Pages.Cars.DeleteModel
+
+@{
+    ViewData["Title"] = "Araç Sil";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="container mt-5">
+    <div class="card shadow rounded">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">Araç Sil</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="text-danger">Bu aracı silmek istediğinizden emin misiniz?</h5>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3 fw-bold">Marka</dt>
+                <dd class="col-sm-9">@Model.CarItem.Brand</dd>
+
+                <dt class="col-sm-3 fw-bold">Model</dt>
+                <dd class="col-sm-9">@Model.CarItem.Model</dd>
+
+                <dt class="col-sm-3 fw-bold">Yıl</dt>
+                <dd class="col-sm-9">@Model.CarItem.Year</dd>
+
+                <dt class="col-sm-3 fw-bold">Renk</dt>
+                <dd class="col-sm-9">@Model.CarItem.Color</dd>
+
+                <dt class="col-sm-3 fw-bold">Günlük Fiyat</dt>
+                <dd class="col-sm-9">@Model.CarItem.DailyPrice.ToString("N0") ₺</dd>
+
+                <dt class="col-sm-3 fw-bold">Donanım</dt>
+                <dd class="col-sm-9">@Model.CarItem.Description</dd>
+
+                <dt class="col-sm-3 fw-bold">Kullanıcı ID</dt>
+                <dd class="col-sm-9 text-muted">@Model.CarItem.UserId</dd>
+            </dl>
+
+            <form method="post" class="mt-4">
+                <input type="hidden" asp-for="CarItem.Id" />
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                    <a asp-page="./Index" class="btn btn-secondary">Listeye Geri Dön</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

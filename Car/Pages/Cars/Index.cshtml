@@ -1,0 +1,198 @@
+﻿@page
+@model Car.Pages.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Araç Listesi";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    tbody tr:hover {
+        background-color: grey;
+        transition: 0.1s;
+    }
+
+    .custom-modal-width {
+        max-width: 750px; /* istediğin genişlik */
+        width: 70%; /* isteğe bağlı, ekran genişliğine göre */
+    }
+
+
+    #success-alert {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1050; /* Bootstrap modallardan daha önde */
+        min-width: 500px;
+        max-width: 500px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+    }
+    .table{
+        margin-bottom: 10%;
+    }
+
+</style>
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.SuccessMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+    </div>
+}
+
+
+<h1>Araçlar</h1>
+
+<p>
+    @if (User.Identity?.IsAuthenticated ?? false)
+    {
+        <!-- Giriş yaptıysa modal açılır -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCarModal">
+            Yeni Araç Ekle
+        </button>
+    }
+    else
+    {
+        <!-- Giriş yapmadıysa login sayfasına yönlendirilir -->
+        <a href="/Identity/Account/Login?returnUrl=/Cars/Index" class="btn btn-primary">
+            Yeni Araç Ekle
+        </a>
+    }
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CarList[0].Brand)</th>
+            <th>@Html.DisplayNameFor(model => model.CarList[0].Model)</th>
+            <th>@Html.DisplayNameFor(model => model.CarList[0].Year)</th>
+            <th>@Html.DisplayNameFor(model => model.CarList[0].Color)</th>
+            <th>@Html.DisplayNameFor(model => model.CarList[0].DailyPrice)</th>
+            <th>@Html.DisplayNameFor(model => model.CarList[0].Description)</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CarList)
+        {
+            <tr data-bs-toggle="modal" data-bs-target="#carDetailModal" data-carid="@item.Id" style="cursor:pointer;">
+                <td>@item.Brand</td>
+                <td>@item.Model</td>
+                <td>@item.Year</td>
+                <td>@item.Color</td>
+                <td>@item.DailyPrice.ToString("N0") ₺</td>
+                <td>@item.Description</td>
+                <td>
+                    @if (item.UserId == Model.CurrentUserId)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">İzin Yok</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<!-- Modal Başlangıcı -->
+<div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
+    <div class="modal-dialog custom-modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCarModalLabel">Yeni Araç Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-page-handler="AddCar">
+                    <div class="mb-3">
+                        <label class="form-label">Marka</label>
+                        <input name="Brand" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Model</label>
+                        <input name="Model" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Yıl</label>
+                        <input name="Year" type="number" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Renk</label>
+                        <input name="Color" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fiyat</label>
+                        <input name="DailyPrice" type="number" step="0.01" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Donanım</label>
+                        <input name="Description" class="form-control" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Araç Detay Modal -->
+<div class="modal fade" id="carDetailModal" tabindex="-1" aria-labelledby="carDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <!-- geniş modal -->
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="carDetailContent">
+                    <!-- AJAX ile detay buraya yüklenecek -->
+                    Yükleniyor...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Sonu -->
+<script>
+    window.setTimeout(function () {
+        const alert = document.getElementById('success-alert');
+        if (alert) {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+            setTimeout(() => alert.remove(), 500); // DOM'dan sil
+        }
+    }, 2000); // 2 saniye sonra kaybolsun
+
+     var carDetailModal = document.getElementById('carDetailModal');
+    carDetailModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Tıklanan satır veya buton
+        var carId = button.getAttribute('data-carid');
+
+        var modalBody = carDetailModal.querySelector('#carDetailContent');
+        modalBody.innerHTML = 'Yükleniyor...';
+
+        fetch('/Cars/Detail?id=' + carId)
+            .then(response => {
+                if (!response.ok) throw new Error('Ağ hatası');
+                return response.text();
+            })
+            .then(html => {
+                modalBody.innerHTML = html;
+            })
+            .catch(error => {
+                modalBody.innerHTML = '<div class="alert alert-danger">Detay yüklenirken hata oluştu.</div>';
+            });
+    });
+</script>
+

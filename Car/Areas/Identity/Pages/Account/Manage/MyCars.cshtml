@@ -1,0 +1,45 @@
+﻿@page
+@model Car.Pages.MyCarsModel
+@{
+    ViewData["Title"] = "Araçlarım";
+}
+
+<h1>Araçlarım</h1>
+
+@if (Model.MyCarList.Count == 0)
+{
+    <p>Henüz hiç araç eklemediniz.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Yıl</th>
+                <th>Renk</th>
+                <th>Günlük Fiyat</th>
+                <th>Açıklama</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model.MyCarList)
+            {
+                <tr>
+                    <td>@car.Brand</td>
+                    <td>@car.Model</td>
+                    <td>@car.Year</td>
+                    <td>@car.Color</td>
+                    <td>@car.DailyPrice.ToString("N0") ₺</td>
+                    <td>@car.Description</td>
+                    <td>
+                        <a asp-page="/Cars/Edit" asp-route-id="@car.Id" class="btn btn-warning btn-sm">Düzenle</a>
+                        <a asp-page="/Cars/Delete" asp-route-id="@car.Id" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
