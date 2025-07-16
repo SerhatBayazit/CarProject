@@ -2,6 +2,7 @@ Bu proje, ASP.NET Core Razor Pages altyapısıyla geliştirilmiş basit bir ara�
 
 Kullanılan Teknolojiler
 
+
 ASP.NET Core 9.0
 
 Razor Pages
@@ -17,7 +18,9 @@ Bootstrap 5.3
 AJAX (Detayları dinamik modal içinde göstermek için)
 
 
+
 Özellikler
+
 
 Kullanıcı kayıt ve kimlik doğrulama (ASP.NET Core Identity)
 
