@@ -1,5 +1,5 @@
 Bu proje, ASP.NET Core Razor Pages altyapısıyla geliştirilmiş basit bir araç listeleme ve yönetim sistemidir. Kullanıcılar araç ekleyebilir, listeleyebilir, güncelleyebilir ve silebilir. Geliştirme sürecinde modern web standartları ve temiz arayüz yapısı dikkate alınmıştır.Kullanılan Teknolojiler
-ASP.NET Core 7.0
+ASP.NET Core 9.0
 
 Razor Pages
 
