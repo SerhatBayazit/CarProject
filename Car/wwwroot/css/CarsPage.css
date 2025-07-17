@@ -1,0 +1,23 @@
+﻿/* cars/index.cshtml içindeki stil bloğu */
+.table {
+    margin-bottom: 50px; /* Tablo ile altındaki elementler arasına boşluk ekler */
+}
+
+/* Genel site.css için */
+/* Ana içerik alanına alttan boşluk ekleyebiliriz */
+.container main {
+    padding-bottom: 80px; /* Mevcut pb-3'e ek olarak veya yerine */
+}
+
+/* DataTables bilgi alanını footer'dan ayırma */
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 15px; /* DataTables elementlerinin üstüne boşluk ekler */
+    margin-bottom: 15px; /* DataTables elementlerinin altına boşluk ekler */
+}
+
+/* Footer'a biraz yukarıdan boşluk vererek genel bir ayırma sağlamak */
+footer {
+    padding-top: 20px; /* Footer'ın üstünden boşluk */
+    margin-top: 30px; /* Footer'ın kendi üstünden marjin */
+}
