@@ -44,7 +44,7 @@ Bu proje, **ASP.NET Core Razor Pages** kullanılarak geliştirilen, kullanıcıl
 > 🔐 `your_pg_username` ve `your_pg_password` alanlarını kendi PostgreSQL bilgilerinizle değiştirin.
 
 
-\`\`\`json
+```bash
 {
   "ConnectionStrings": {
     "DefaultConnection": "Host=localhost;Port=5432;Database=CarDB;Username=your_pg_username;Password=your_pg_password"
@@ -57,7 +57,7 @@ Bu proje, **ASP.NET Core Razor Pages** kullanılarak geliştirilen, kullanıcıl
   },
   "AllowedHosts": "*"
 }
-\`\`\`
+```
 
 ---
 
@@ -68,10 +68,10 @@ Bu proje, **ASP.NET Core Razor Pages** kullanılarak geliştirilen, kullanıcıl
 - Ardından `Rebuild Solution` yapın.
 
 #### Terminal Üzerinden:
-\`\`\`bash
+```bash
 dotnet restore
 dotnet build
-\`\`\`
+```
 
 ---
 
