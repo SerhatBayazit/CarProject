@@ -1,36 +1,33 @@
-Bu proje, ASP.NET Core Razor Pages altyapısıyla geliştirilmiş basit bir araç listeleme ve yönetim sistemidir. Kullanıcılar araç ekleyebilir, listeleyebilir, güncelleyebilir ve silebilir. Geliştirme sürecinde modern web standartları ve temiz arayüz yapısı dikkate alınmıştır.
+ASP.NET Core Razor Pages ile Araç Yönetim Sistemi
+Bu proje, ASP.NET Core Razor Pages altyapısıyla geliştirilmiş, kullanıcıların araçları kolayca listeleyebileceği ve yönetebileceği basit bir sistemdir. Modern web standartları ve temiz arayüz yapısı göz önünde bulundurularak geliştirilmiştir.
+
+Genel Bakış
+Kullanıcılar bu sistem aracılığıyla araç ekleme, mevcut araçları listeleme, güncelleme ve silme gibi temel işlemleri gerçekleştirebilirler. Proje, web uygulamalarının geliştirilmesinde sıkça kullanılan güncel teknolojileri bir araya getirerek hem işlevsel hem de kullanıcı dostu bir deneyim sunar.
 
 Kullanılan Teknolojiler
+ASP.NET Core 9.0: Güçlü ve performanslı web uygulamaları geliştirmek için tercih edilen açık kaynaklı bir framework.
 
+Razor Pages: ASP.NET Core içinde sayfa tabanlı, daha basit ve üretken web arayüzleri oluşturmak için kullanılan bir model.
 
-ASP.NET Core 9.0
+Entity Framework Core: .NET geliştiricilerinin veritabanı işlemleri için nesne-ilişkisel eşleyici (ORM) aracı.
 
-Razor Pages
+Identity (Kullanıcı Giriş/Çıkış Sistemi): Kullanıcı kayıt, giriş ve kimlik doğrulama süreçlerini yönetmek için ASP.NET Core'un sağladığı bir özellik.
 
-Entity Framework Core
+SQL Server LocalDB: Geliştirme ortamında kullanılan hafif ve kolay dağıtılabilir bir SQL Server veritabanı sürümü.
 
-Identity (Kullanıcı Giriş/Çıkış Sistemi)
+Bootstrap 5.3: Modern ve duyarlı web tasarımları oluşturmak için popüler bir CSS framework'ü.
 
-SQL Server LocalDB
-
-Bootstrap 5.3
-
-AJAX (Detayları dinamik modal içinde göstermek için)
-
-
+AJAX: Araç detaylarını dinamik modal pencereler içinde göstermek gibi eşzamansız işlemleri gerçekleştirmek için kullanılmıştır.
 
 Özellikler
+Kullanıcı Kayıt ve Kimlik Doğrulama: ASP.NET Core Identity altyapısı sayesinde güvenli kullanıcı kayıt ve giriş sistemleri.
 
+Giriş Yapan Kullanıcıya Özel Araç Ekleme: Her kullanıcının sadece kendi eklediği araçları yönetebilmesi.
 
-Kullanıcı kayıt ve kimlik doğrulama (ASP.NET Core Identity)
+Araç Yönetimi: Araçların detaylı listelenmesi, kolayca düzenlenmesi ve silinmesi işlemleri.
 
-Giriş yapan kullanıcıya özel araç ekleme
+Dinamik Detay Gösterimi: AJAX kullanılarak araç detaylarının bir modal (açılır pencere) içinde anında ve sayfa yenilemeden görüntülenmesi.
 
-Araçların listeleme, düzenleme, silme işlemleri
+Geri Bildirim Mesajları: Başarılı işlemler sonrasında kullanıcıya otomatik kaybolan uyarı (alert) mesajları sunarak daha iyi bir kullanıcı deneyimi.
 
-AJAX ile araç detaylarını modal popup içinde gösterme
-
-Başarılı işlemler için otomatik kaybolan uyarı (alert) mesajları
-
-Sade ve kullanıcı dostu arayüz
-
+Sade ve Kullanıcı Dostu Arayüz: Temiz ve anlaşılır bir tasarım ile kullanıcıların sistemi kolayca kullanabilmesi.
