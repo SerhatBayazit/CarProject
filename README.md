@@ -1,79 +1,60 @@
-🚗 ASP.NET Core Razor Pages ile Araç Yönetim Sistemi
+# 🚗 ASP.NET Core Razor Pages ile Araç Yönetim Sistemi
 
-Bu proje, ASP.NET Core Razor Pages altyapısıyla geliştirilmiş, kullanıcıların araçları kolayca listeleyebileceği ve yönetebileceği basit bir sistemdir. Modern web standartları ve temiz arayüz yapısı göz önünde bulundurularak geliştirilmiştir.
+Bu proje, **ASP.NET Core Razor Pages** altyapısıyla geliştirilmiş, kullanıcıların araçları kolayca listeleyip yönetebileceği basit bir araç yönetim sistemidir. Modern web standartları ve temiz bir arayüz yapısı göz önünde bulundurularak tasarlanmıştır.
 
-Genel Bakış
+---
 
-Kullanıcılar bu sistem aracılığıyla araç ekleme, mevcut araçları listeleme, güncelleme ve silme gibi temel işlemleri gerçekleştirebilirler. Proje, web uygulamalarının geliştirilmesinde sıkça kullanılan güncel teknolojileri bir araya getirerek hem işlevsel hem de kullanıcı dostu bir deneyim sunar.
+## 📌 Genel Bakış
 
-Kullanılan Teknolojiler
+Kullanıcılar bu sistem aracılığıyla araç ekleme, listeleme, güncelleme ve silme gibi temel işlemleri gerçekleştirebilirler. Proje, web uygulama geliştirme sürecinde sıkça kullanılan güncel teknolojileri bir araya getirerek işlevsel ve kullanıcı dostu bir deneyim sunar.
 
-ASP.NET Core 9.0: Güçlü ve performanslı web uygulamaları geliştirmek için tercih edilen açık kaynaklı bir framework.
+---
 
-Razor Pages: ASP.NET Core içinde sayfa tabanlı, daha basit ve üretken web arayüzleri oluşturmak için kullanılan bir model.
+## 🛠️ Kullanılan Teknolojiler
 
-Entity Framework Core: .NET geliştiricilerinin veritabanı işlemleri için nesne-ilişkisel eşleyici (ORM) aracı.
+- **ASP.NET Core 9.0** – Performanslı ve modern web uygulamaları geliştirmek için açık kaynaklı bir framework.
+- **Razor Pages** – Sayfa tabanlı, sade ve üretken web arayüzleri oluşturmak için kullanılan ASP.NET Core modeli.
+- **Entity Framework Core** – .NET geliştiricileri için nesne-ilişkisel eşleme (ORM) çözümü.
+- **ASP.NET Core Identity** – Kullanıcı kayıt, giriş ve kimlik doğrulama işlemleri için güvenli bir sistem.
+- **SQL Server LocalDB** – Geliştirme ortamı için hafif ve dağıtımı kolay bir SQL Server sürümü.
+- **Bootstrap 5.3** – Duyarlı ve modern tasarımlar için popüler bir CSS framework’ü.
+- **AJAX** – Dinamik içerik yükleme (örneğin modal pencerede araç detayları) için eşzamansız veri işlemleri.
 
-Identity (Kullanıcı Giriş/Çıkış Sistemi): Kullanıcı kayıt, giriş ve kimlik doğrulama süreçlerini yönetmek için ASP.NET Core'un sağladığı bir özellik.
+---
 
-SQL Server LocalDB: Geliştirme ortamında kullanılan hafif ve kolay dağıtılabilir bir SQL Server veritabanı sürümü.
+## 🚀 Özellikler
 
-Bootstrap 5.3: Modern ve duyarlı web tasarımları oluşturmak için popüler bir CSS framework'ü.
+- **Kullanıcı Kayıt & Giriş Sistemi:** ASP.NET Core Identity sayesinde güvenli bir kullanıcı kimlik doğrulama altyapısı.
+- **Kullanıcıya Özel Araç Yönetimi:** Her kullanıcı yalnızca kendi eklediği araçları görebilir ve yönetebilir.
+- **CRUD İşlemleri:** Araç ekleme, düzenleme, silme ve listeleme işlemleri kolaylıkla yapılabilir.
+- **AJAX ile Detay Gösterimi:** Araç detayları modal pencere ile dinamik olarak gösterilir, sayfa yenilenmeden veri çekilir.
+- **Geri Bildirim Mekanizması:** Başarılı işlemler sonrası kullanıcıya kayan ve otomatik kaybolan alert mesajları gösterilir.
+- **Temiz ve Modern Arayüz:** Kullanıcı dostu, sade ve responsive tasarım.
 
-AJAX: Araç detaylarını dinamik modal pencereler içinde göstermek gibi eşzamansız işlemleri gerçekleştirmek için kullanılmıştır.
+1. 💻 Projeyi Visual Studio ile Açın
+Proje klasörüne gidin.
 
-Özellikler
+Car.sln (veya sizin çözüm dosyanızın adı neyse) uzantılı dosyaya çift tıklayarak Visual Studio'da açın.
 
-Kullanıcı Kayıt ve Kimlik Doğrulama: ASP.NET Core Identity altyapısı sayesinde güvenli kullanıcı kayıt ve giriş sistemleri.
+2. 🐘 PostgreSQL Veritabanını Hazırlayın
+2.1 PostgreSQL'i Yükleyin
+Eğer PostgreSQL sisteminizde yüklü değilse, resmi web sitesi üzerinden işletim sisteminize uygun sürümü indirip kurun.
 
-Giriş Yapan Kullanıcıya Özel Araç Ekleme: Her kullanıcının sadece kendi eklediği araçları yönetebilmesi.
+Kurulum sırasında bir kullanıcı adı (genellikle postgres) ve şifre belirlemeyi unutmayın.
 
-Araç Yönetimi: Araçların detaylı listelenmesi, kolayca düzenlenmesi ve silinmesi işlemleri.
+Veritabanı yönetimi için pgAdmin arayüzü önerilir.
 
-Dinamik Detay Gösterimi: AJAX kullanılarak araç detaylarının bir modal (açılır pencere) içinde anında ve sayfa yenilemeden görüntülenmesi.
+2.2 Yeni Veritabanı Oluşturun
+pgAdmin veya başka bir PostgreSQL istemcisiyle sunucuya bağlanın.
 
-Geri Bildirim Mesajları: Başarılı işlemler sonrasında kullanıcıya otomatik kaybolan uyarı (alert) mesajları sunarak daha iyi bir kullanıcı deneyimi.
+CarDB adında yeni ve boş bir veritabanı oluşturun.
 
-Sade ve Kullanıcı Dostu Arayüz: Temiz ve anlaşılır bir tasarım ile kullanıcıların sistemi kolayca kullanabilmesi.
+3. ⚙️ appsettings.json Dosyasını Yapılandırın
+Proje dizinindeki appsettings.json dosyasını açın ve ConnectionStrings bölümünü aşağıdaki gibi düzenleyin:
 
-⚙️ Kurulum Talimatları
-
-Projeyi yerel makinenizde kurup çalıştırmak için aşağıdaki adımları sırasıyla takip edin.
-
-1. Proje Dosyalarını Alın
-
-İlk olarak, projenin kaynak kodunu GitHub deposundan bilgisayarınıza klonlayın veya zip olarak indirin:
-
-git clone https://github.com/KULLANICIADINIZ/DEPOADINIZ.git
-cd DEPOADINIZ # (Deponuzun adı neyse o klasöre geçiş yapın)
-
-
-Projeyi Visual Studio'da açın:
-
-Proje klasörüne gidin ve Car.sln (veya çözüm dosyanızın adı) uzantılı dosyaya çift tıklayın.
-
-2. PostgreSQL Veritabanını Hazırlayın
-
-Bu proje, verilerini depolamak için bir PostgreSQL veritabanı kullanır.
-
-PostgreSQL Sunucunuzun Çalıştığından Emin Olun:
-
-Eğer kurulu değilse, PostgreSQL'in resmi web sitesinden işletim sisteminize uygun sürümü indirip kurun. Kurulum sırasında bir yönetici kullanıcı adı (örn. postgres) ve şifre belirlemeyi unutmayın.
-
-Veritabanı yönetimi için pgAdmin kullanmanız önerilir.
-
-Yeni Bir Veritabanı Oluşturun:
-
-pgAdmin veya tercih ettiğiniz başka bir PostgreSQL istemcisi aracılığıyla sunucunuza bağlanın.
-
-Sunucunuzda CarDB adında yeni ve boş bir veritabanı oluşturun.
-
-Veritabanı Bağlantı Dizgesini Yapılandırın:
-
-Projenizin ana dizininde bulunan appsettings.json dosyasını açın.
-
-ConnectionStrings bölümündeki DefaultConnection değerini kendi PostgreSQL sunucunuzun bilgileriyle güncelleyin:
-
+json
+Kopyala
+Düzenle
 {
   "ConnectionStrings": {
     "DefaultConnection": "Host=localhost;Port=5432;Database=CarDB;Username=your_pg_username;Password=your_pg_password"
@@ -86,73 +67,71 @@ ConnectionStrings bölümündeki DefaultConnection değerini kendi PostgreSQL su
   },
   "AllowedHosts": "*"
 }
-```your_pg_username` yerine kendi PostgreSQL kullanıcı adınızı (örn. `postgres`) ve `your_pg_password` yerine PostgreSQL şifrenizi yazın. `Database` kısmının `CarDB` (veya oluşturduğunuz veritabanı adı) ile eşleştiğinden emin olun.
+🔒 your_pg_username yerine PostgreSQL kullanıcı adınızı (örneğin postgres),
+your_pg_password yerine şifrenizi yazın.
+Database=CarDB kısmı, az önce oluşturduğunuz veritabanı adıyla eşleşmelidir.
 
----
+4. 📦 NuGet Paketlerini Yükleyin ve Projeyi Derleyin
+🔹 Visual Studio Kullanıcıları İçin
+Visual Studio projeyi açtığınızda NuGet paketleri genellikle otomatik yüklenir.
 
-## 3. NuGet Paketlerini Yükleyin ve Projeyi Derleyin
+Ardından Çözüm Gezgini üzerinden projeye sağ tıklayın → Build > Rebuild Solution ile projeyi derleyin.
 
-Projenin tüm bağımlılıklarının yüklendiğinden ve derlenebildiğinden emin olun.
+🔹 Komut Satırı Kullanıcıları İçin
+Proje dizinine terminal/komut istemcisiyle gidin:
 
-### Visual Studio Kullanıcıları İçin:
-
-Visual Studio'da projeyi açtığınızda, gerekli NuGet paketleri otomatik olarak geri yüklenecektir.
-
-Çözüm Gezgini'nde projenize sağ tıklayın ve **Build (Derle) > Rebuild Solution (Çözümü Yeniden Oluştur)** seçeneğini seçerek projenin hatasız derlendiğinden emin olun.
-
-### Komut Satırı Kullanıcıları İçin:
-
-Projenizin ana dizininde (yani `Car.sln` dosyasının bulunduğu dizin) bir terminal veya komut istemcisi açın.
-
-Bağımlılıkları geri yüklemek için:
-
-```bash
+bash
+Kopyala
+Düzenle
 dotnet restore
+Gerekli NuGet paketlerini yükler.
 
-
-Projeyi derlemek için:
-
+bash
+Kopyala
+Düzenle
 dotnet build
+Projeyi derler ve hataları kontrol eder.
 
+5. 🗄️ Veritabanı Migrasyonlarını Uygulayın
+Entity Framework Core kullanılarak veritabanı tabloları otomatik olarak oluşturulacaktır.
 
-4. Veritabanı Migrasyonlarını Uygulayın
+Proje dizininde şu komutu çalıştırın:
 
-Bu adım, Entity Framework Core kullanarak veritabanı şemasını (hem uygulama verileri hem de Identity tabloları) PostgreSQL veritabanınıza uygulayacaktır.
-
-Terminal veya Komut İstemi'ni Açın: Projenizin ana dizininde olduğunuzdan emin olun.
-
-Aşağıdaki komutu çalıştırın:
-
+bash
+Kopyala
+Düzenle
 dotnet ef database update --project Car.csproj --startup-project Car.csproj
+Not: Car.csproj yerine kendi web projenizin .csproj dosyasını yazmalısınız.
 
+6. ▶️ Uygulamayı Başlatın
+🔹 Visual Studio Kullanıcıları
+F5 tuşuna basın veya üst menüden **"Yeşil Başlat Butonu"**na tıklayın.
 
-Not: --project Car.csproj ve --startup-project Car.csproj kısmında, kendi ana web projenizin .csproj dosyasının adını kullanmalısınız (varsayılan olarak Car.csproj).
+Uygulama genellikle https://localhost:7001 gibi bir adreste açılır.
 
-5. Projeyi Çalıştırın
-
-Proje artık çalışmaya hazır!
-
-Visual Studio ile Çalıştırma:
-
-Visual Studio'da F5 tuşuna basın veya üst menüdeki yeşil "Play" (Oynat) butonuna tıklayın. Uygulama derlenecek ve varsayılan web tarayıcınızda açılacaktır (genellikle https://localhost:7001 gibi bir adreste).
-
-Komut Satırı ile Çalıştırma:
-
-Projenizin ana dizininde bir terminal veya komut istemcisi açın.
-
+🔹 Komut Satırı Kullanıcıları
 Aşağıdaki komutu çalıştırın:
 
+bash
+Kopyala
+Düzenle
 dotnet run --project Car.csproj
+Konsolda verilen URL’yi tarayıcınızda açarak uygulamayı kullanmaya başlayabilirsiniz.
 
+7. 🚗 Uygulamayı Kullanmaya Başlayın
+👤 Kullanıcı Kaydı
+Sağ üstteki “Kayıt Ol” bağlantısına tıklayın.
 
-Konsolda uygulamanın çalıştığı URL'yi göreceksiniz. Bu URL'yi kopyalayıp web tarayıcınızda açın.
+Kayıt formunda "Kullanıcı Adı" alanını doldurduğunuzdan emin olun.
 
-6. Uygulamayı Kullanmaya Başlayın
+🔐 Giriş Yapma
+Oluşturduğunuz e-posta ve şifreyle giriş yapın.
 
-Uygulama tarayıcınızda açıldığında:
+Giriş yaptıktan sonra ana ekranda “Merhaba, [Kullanıcı Adınız]!” mesajını göreceksiniz.
 
-Kayıt Olma: Sağ üst köşedeki "Kayıt Ol" bağlantısına tıklayarak yeni bir kullanıcı hesabı oluşturun. Kayıt formunda "Kullanıcı Adı" alanını doldurmayı unutmayın.
+🛠️ Araç Yönetimi
+Navigasyon menüsünden Araçlar sayfasına gidin.
 
-Giriş Yapma: Oluşturduğunuz hesap bilgileriyle (e-posta ve şifre) giriş yapın. Başarılı bir girişin ardından ana ekranda "Merhaba [Kullanıcı Adınız]!" şeklinde kişiselleştirilmiş bir karşılama görmelisiniz.
+Araç ekleme, listeleme, detay görüntüleme, düzenleme ve silme işlemlerini gerçekleştirebilirsiniz.
 
-Araç Yönetimi: Navigasyon menüsündeki "Araçlar" veya ilgili bağlantıları kullanarak araç ekleme, listeleme, detaylarını görüntüleme, düzenleme ve silme işlemlerini gerçekleştirebilirsiniz. Unutmayın, güvenlik gereği, yalnızca kendi eklediğiniz araçları düzenleyebilir veya silebilirsiniz.
+🔒 Güvenlik gereği, sadece kendi eklediğiniz araçlar üzerinde işlem yapabilirsiniz.
