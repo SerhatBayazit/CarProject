@@ -77,9 +77,9 @@ dotnet build
 
 ### 5. 🗄️ Veritabanı Migrasyonları
 
-\`\`\`bash
+```bash
 dotnet ef database update --project Car.csproj --startup-project Car.csproj
-\`\`\`
+```
 
 > Gerekirse `--project` parametresini kendi `.csproj` dosyanıza göre güncelleyin.
 
@@ -91,9 +91,9 @@ dotnet ef database update --project Car.csproj --startup-project Car.csproj
 - F5 tuşu veya "Yeşil Başlat" butonuna tıklayın.
 
 #### Terminal:
-\`\`\`bash
+```bash
 dotnet run --project Car.csproj
-\`\`\`
+```
 
 > Tarayıcıda genellikle `https://localhost:7001` adresinde açılır.
 
