@@ -36,20 +36,28 @@ Bu proje, **ASP.NET Core Razor Pages** kullanılarak geliştirilen, kullanıcıl
 
 ### 2. 🐘 PostgreSQL Kurulumu
 - [PostgreSQL resmi sitesinden](https://www.postgresql.org/) PostgreSQL'i indirip kurun.
+- Kurulum esnasında English-US seçin yoksa hata verir.
 - `pgAdmin` üzerinden yeni bir veritabanı oluşturun: **CarDB**
 
 ### 3. ⚙️ `appsettings.json` Yapılandırması
+
+> 🔐 `your_pg_username` ve `your_pg_password` alanlarını kendi PostgreSQL bilgilerinizle değiştirin.
+
 
 \`\`\`json
 {
   "ConnectionStrings": {
     "DefaultConnection": "Host=localhost;Port=5432;Database=CarDB;Username=your_pg_username;Password=your_pg_password"
   },
-  ...
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
 }
 \`\`\`
-
-> 🔐 `your_pg_username` ve `your_pg_password` alanlarını kendi PostgreSQL bilgilerinizle değiştirin.
 
 ---
 
